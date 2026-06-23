@@ -1,10 +1,11 @@
 @echo off
+setlocal EnableDelayedExpansion
 chcp 65001 >nul 2>&1
-title U-Claw - Portable AI Agent
+title Qu_Claw - Portable AI Agent
 
 echo.
 echo   ========================================
-echo     U-Claw v1.1 - Portable AI Agent
+echo     Qu_Claw v1.1 - Portable AI Agent
 echo   ========================================
 echo.
 
@@ -94,27 +95,45 @@ echo   Starting Config Center on port 18788...
 set "CONFIG_SERVER=%UCLAW_DIR%config-server"
 start /B "" "%NODE_BIN%" "%CONFIG_SERVER%\server.js" >nul 2>&1
 
-REM Wait for config server to start
-timeout /t 2 /nobreak >nul
-
-REM Open both Dashboard and Config Center
-echo   Opening Dashboard and Config Center...
-timeout /t 1 /nobreak >nul
-
-REM Open OpenClaw Dashboard first
-start "" http://127.0.0.1:%PORT%/#token=uclaw
-
-REM Open Config Center (Node.js web UI) second
-start "" http://127.0.0.1:18788/
-
-echo   Browsers opened. Starting OpenClaw Gateway on port %PORT%...
-echo   DO NOT close this window while using U-Claw!
-echo.
-
+REM Start OpenClaw Gateway in background
 cd /d "%CORE_DIR%"
 set "OPENCLAW_MJS=%CORE_DIR%\node_modules\openclaw\openclaw.mjs"
-"%NODE_BIN%" "%OPENCLAW_MJS%" gateway run --allow-unconfigured --force --port %PORT%
+start /B "" "%NODE_BIN%" "%OPENCLAW_MJS%" gateway run --allow-unconfigured --force --port %PORT%
+
+echo   Waiting for Gateway to be ready...
+
+REM Poll gateway until it responds (max 30 seconds)
+set READY=0
+for /L %%i in (1,1,30) do (
+    if !READY!==0 (
+        timeout /t 1 /nobreak >nul
+        curl -s -o nul -w "%%{http_code}" http://127.0.0.1:%PORT%/ 2>nul | findstr "200 301 302 401 403" >nul 2>&1
+        if !errorlevel!==0 (
+            set READY=1
+            echo   Gateway ready! (took %%i seconds^)
+        )
+    )
+)
+
+if %READY%==0 (
+    echo   [WARN] Gateway did not respond in 30 seconds, opening anyway...
+)
 
 echo.
-echo   OpenClaw stopped.
-pause
+echo   Opening Dashboard and Config Center...
+
+REM Open OpenClaw Dashboard
+start "" http://127.0.0.1:%PORT%/#token=uclaw
+
+REM Open Config Center
+start "" http://127.0.0.1:18788/
+
+echo.
+echo   Browsers opened. Qu_Claw is running on port %PORT%.
+echo   DO NOT close this window while using Qu_Claw!
+echo.
+
+REM Keep the script alive so the gateway stays running
+:keep_alive
+timeout /t 3600 /nobreak >nul
+goto keep_alive

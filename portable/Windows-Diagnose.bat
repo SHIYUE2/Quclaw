@@ -1,21 +1,21 @@
 @echo off
 setlocal EnableDelayedExpansion
 chcp 65001 >nul 2>&1
-title U-Claw - Diagnostic Tool
+title Qu_Claw - Diagnostic Tool
 
 set "UCLAW_DIR=%~dp0"
 set "LOG_FILE=%UCLAW_DIR%diagnostic-log.txt"
 
 echo.
 echo   ========================================
-echo     U-Claw Diagnostic Tool
+echo     Qu_Claw Diagnostic Tool
 echo   ========================================
 echo.
 echo   Checking system...
 echo.
 
 REM Clear old log
-echo U-Claw Diagnostic Report > "%LOG_FILE%"
+echo Qu_Claw Diagnostic Report > "%LOG_FILE%"
 echo Generated: %date% %time% >> "%LOG_FILE%"
 echo ======================================== >> "%LOG_FILE%"
 echo. >> "%LOG_FILE%"
@@ -178,7 +178,7 @@ if !ERROR_COUNT!==0 (
     echo   2. 尝试重新运行 Windows-Start.bat
     echo      （会自动安装缺失的依赖）
     echo   3. 如问题仍然存在，访问:
-    echo      github.com/dongsheng123132/u-claw
+    echo      github.com/dongsheng123132/qu_claw
 )
 echo.
 echo   诊断日志已保存: diagnostic-log.txt

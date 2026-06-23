@@ -1,228 +1,232 @@
-# 🦞 U-Claw（虾盘）
+# 🦞 Qu\_Claw（虾盘）
 
-> **虾盘 — 全球首个 U 盘里运行的 AI 助手 | The world's first AI assistant that runs from a USB drive**
-> **制作「插上就能用」的 AI 助手 U 盘 — 教程与源代码**
-> **Build a plug-and-play AI assistant USB drive — Tutorial & Source Code**
+
+> **插上 U 盘，双击启动，AI 随身携带**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[中文](#中文) | [English](#english) | [📖 完整教程](https://u-claw.org/tutorial.html)
+***
 
----
+## 🙏 致谢与致敬
 
-<a id="中文"></a>
+本项目基于以下优秀的开源项目构建，向原作者和社区致以最诚挚的感谢：
 
-## 中文
+### 🦾 OpenClaw
 
-### 这是什么
+**OpenClaw** 是一个备受瞩目的开源 AI 助手框架，核心理念是让 AI 从"对话"走向"执行"——即 AI 能够直接操控电脑完成任务。
 
-U-Claw（虾盘）是一个**制作教程 + 全套源代码**，教你把 [OpenClaw](https://github.com/openclaw/openclaw)（开源 AI 助手框架）做成 U 盘——插上任意电脑，双击就能用 AI。为什么叫虾盘？U-Claw = USB + Claw（虾钳），U 盘 + AI = 虾盘。
+- **核心理念**：AI 从"对话"走向"执行"，让 AI 真正成为你的数字助手
+- **架构特点**：模块化设计，支持灵活接入各种大语言模型
+- **开源地址**：<https://github.com/openclaw/openclaw>
 
-代码库本身就是 U 盘的文件骨架，运行 `setup.sh` 补齐大依赖后，整个 `portable/` 目录直接拷贝到 U 盘即可。
+### 🦞 U-claw（虾盘）
 
-> 📖 **[完整教程](https://u-claw.org/tutorial.html)** — 从零开始的手工安装指南、模型配置、聊天平台接入，小白也能看懂。
+**U-claw（虾盘）** 是 OpenClaw 的便携化发行版本，专为解决国内用户配置复杂的问题而生。
 
-### 一键安装（推荐）
+- **核心价值**：解决配置痛点，让 AI 助手触手可及
+- **便携特性**：U 盘运行，数据随身携带
+- **国内优化**：全程国内镜像，无需翻墙
+
+Qu\_Claw 项目在此基础上进行了本地化增强和功能扩展，为中文用户提供更友好的体验。
+
+***
+
+## 📖 项目简介
+
+Qu\_Claw（虾盘）是一个**制作教程 + 全套源代码**，教你把 OpenClaw 做成 U 盘——插上任意电脑，双击就能用 AI。
+
+**为什么叫虾盘？**
+
+- Qu\_Claw = USB + Claw（虾钳）
+- U 盘 + AI = 虾盘 🦞
+
+**核心特性：**
+
+- ✅ 免安装运行 — 插上 U 盘，双击启动脚本即可
+- ✅ 跨平台支持 — Mac / Windows 双平台支持
+- ✅ 国产模型优先 — DeepSeek、Kimi、通义千问等，无需翻墙
+- ✅ 数据随身携带 — 所有配置和对话记录保存在 U 盘
+- ✅ 10+ 中国本土化技能 — B站助手、微博发文、小红书写作等
+
+***
+
+## 🚀 快速开始
+
+### 方式一：一键安装（推荐）
 
 不需要 U 盘，一行命令直接装到电脑：
 
 ```bash
 # Mac / Linux
-curl -fsSL https://u-claw.org/install.sh | bash
+curl -fsSL https://qu_claw.org/install.sh | bash
 
 # Windows (PowerShell 管理员)
-irm https://u-claw.org/install.ps1 | iex
+irm https://qu_claw.org/install.ps1 | iex
 ```
 
-自动完成: Node.js 下载 → OpenClaw 安装 → 10 个中国技能 → 模型配置 → 启动脚本生成。全程国内镜像，无需翻墙。
+自动完成：Node.js 下载 → OpenClaw 安装 → 10 个中国技能 → 模型配置 → 启动脚本生成
 
-详见 [`install/README.md`](install/README.md)。
-
-### 快速开始：制作便携版 U 盘
+### 方式二：制作便携版 U 盘
 
 ```bash
 # 1. 克隆代码
-git clone https://github.com/dongsheng123132/u-claw.git
+git clone https://github.com/dongsheng123132/qu_claw.git
 
-# 2. 补齐大依赖（Node.js + OpenClaw，国内镜像，约 1 分钟）
-cd u-claw/portable && bash setup.sh
+# 2. 补齐依赖（Node.js + OpenClaw，国内镜像，约 1 分钟）
+cd qu_claw/portable && bash setup.sh
 
 # 3. 拷贝到 U 盘
-cp -R portable/ /Volumes/你的U盘/U-Claw/   # Mac
+cp -R portable/ /Volumes/你的U盘/Qu_Claw/   # Mac
 # 或 Windows 资源管理器直接拖过去
 ```
 
 **完成！** 插上 U 盘，双击启动脚本就能用。
 
-### U 盘功能一览
+***
 
-| 功能 | Mac | Windows |
-|------|-----|---------|
-| **免安装运行** | `Mac-Start.command` | `Windows-Start.bat` |
-| **功能菜单** | `Mac-Menu.command` | `Windows-Menu.bat` |
-| **安装到电脑** | `Mac-Install.command` | `Windows-Install.bat` |
-| **首次配置** | `Config.html` | `Config.html` |
+## 💻 使用方法
 
-### U 盘文件结构
+### Windows 用户
 
-```
-U-Claw/                          ← 整个拷到 U 盘
-├── Mac-Start.command             Mac 免安装运行
-├── Mac-Menu.command              Mac 功能菜单
-├── Mac-Install.command           安装到 Mac
-├── Windows-Start.bat             Windows 免安装运行
-├── Windows-Menu.bat              Windows 功能菜单
-├── Windows-Install.bat           安装到 Windows
-├── Config.html                   首次配置页面
-├── setup.sh                      补齐依赖（开发者用）
-├── app/                          ← 大依赖（setup.sh 下载，不进 git）
-│   ├── core/                        OpenClaw + QQ 插件
-│   └── runtime/
-│       ├── node-mac-arm64/          Mac Apple Silicon
-│       ├── node-mac-x64/           Mac Intel
-│       └── node-win-x64/           Windows 64-bit
-└── data/                         ← 用户数据（不进 git）
-    ├── .openclaw/                   配置文件
-    ├── memory/                      AI 记忆
-    └── backups/                     备份
-```
+1. 双击 `Windows-Start.bat` 启动服务
+2. 浏览器自动打开配置页面
+3. 选择 AI 模型，填写 API Key
+4. 开始对话！
 
-### Linux 可启动版
+### Mac 用户
 
-连操作系统都没有？没关系。可启动版可以让任意电脑从 U 盘直接启动 Ubuntu + AI：
+1. 双击 `Mac-Start.command` 启动服务
+2. 浏览器自动打开配置页面
+3. 选择 AI 模型，填写 API Key
+4. 开始对话！
 
-- 本仓库内：[`bootable/`](bootable/) 目录（与其他模块完全独立，互不影响）
-- 独立仓库：[u-claw-linux](https://github.com/dongsheng123132/u-claw-linux)（内容一致，方便单独克隆）
+***
 
-基于 Ventoy + Ubuntu 24.04 LTS + 持久化存储，在 Windows 上运行 4 步 PowerShell 脚本即可制作。详见 [`bootable/README.md`](bootable/README.md)。
+## 🤖 支持的 AI 模型
 
-### 桌面安装版（Electron App）
+### 国产模型（无需翻墙）
 
-除了 U 盘便携版，还有桌面 App 版本：
-
-```bash
-cd u-claw-app
-bash setup.sh            # 一键安装开发环境（国内镜像）
-npm run dev              # 开发模式运行
-npm run build:mac-arm64  # 打包 → release/*.dmg
-npm run build:win        # 打包 → release/*.exe
-```
-
-### 支持的 AI 模型
-
-**国产模型（无需翻墙）：**
-
-| 模型 | 推荐场景 |
-|------|----------|
-| DeepSeek | 编程首选，极便宜 |
+| 模型        | 推荐场景         |
+| --------- | ------------ |
+| DeepSeek  | 编程首选，极便宜     |
 | Kimi K2.5 | 长文档，256K 上下文 |
-| 通义千问 Qwen | 免费额度大 |
-| 智谱 GLM | 学术场景 |
-| MiniMax | 语音多模态 |
-| 豆包 Doubao | 火山引擎 |
+| 通义千问 Qwen | 免费额度大        |
+| 智谱 GLM    | 学术场景         |
+| MiniMax   | 语音多模态        |
+| 豆包 Doubao | 火山引擎         |
 
-**大模型聚合平台**
+### 大模型聚合平台
 
-SophNet，提供DS，GLM，Qwen，MiniMax，Kimi等多家开源大模型，多达50多种，一个API Key可以体验多个顶级大模型。
+**SophNet** — 提供 DS、GLM、Qwen、MiniMax、Kimi 等多家开源大模型，多达 50+ 种，一个 API Key 体验多个顶级大模型。
 
-可以通过https://www.sophnet.com/#?code=4T6VKY注册了解。
+注册地址：<https://www.sophnet.com/#?code=4T6VKY>
 
-**LLM(最新版本)**
+### 国际模型
 
-| 国内/国外 | 模型厂商 | 模型 | 模型id（对外） | 规格 |
-| ------  |---------|----------|----------|----------|
-| 国内 | 深度求索 | DeepSeek V3.2 Fast | DeepSeek-V3.2-Fast | SophNet独家供给，DeepSeek满血版 TPS 峰值100以上 |
-| 国内 | 深度求索 | DeepSeek V3.2 Exp | DeepSeek-V3.2-Exp | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 深度求索 | DeepSeek V3.2 | DeepSeek-V3.2 | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 深度求索 | DeepSeek R1 | DeepSeek-R1 | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 深度求索 | DeepSeek-R1-Distill-Qwen-7B | DeepSeek-R1-Distill-Qwen-7B | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 深度求索 | DeepSeek-R1-Distill-Qwen-32B | DeepSeek-R1-Distill-Qwen-32B | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | QwQ-32B | QwQ-32B | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Qwen3.5-397B-A17B | Qwen3.5-397B-A17B | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 月之暗面 | Kimi-K2.5 | Kimi-K2.5-global | 开绿网版本 |
-| 国内 | 月之暗面 | Kimi-k2.5 | Kimi-K2.5 | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 智谱 | GLM-5 | GLM-5 | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | MiniMax | MiniMax-M2.5 | MiniMax-M2.5 | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 字节跳动 | Seed-OSS-36B-Instruct | Seed-OSS-36B-Instruct | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 小米 | MiMo-V2-Flash | MiMo-V2-Flash | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 海外 | openai | GPT-OSS-120B | GPT-OSS-120B | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 美团 | LongCat-Flash-Chat | LongCat-Flash-Chat | SophNet算力供给，性能对标火山阿里，超高并发支持 |
+Claude · GPT · Gemini（需翻墙或中转）
 
-**视觉模型(最新版本)**
+***
 
-| 国内/国外 | 模型厂商 | 模型 | 模型id（对外） | 规格 |
-| ------  |---------|----------|----------|----------|
-| 国内 | 阿里 | Qwen3-VL-235B-A22B-Instruct | Qwen3-VL-235B-A22B-Instruct | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Qwen2.5-VL-7B-Instruct | Qwen2.5-VL-7B-Instruct | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Qwen2.5-VL-72B-Instruct | Qwen2.5-VL-72B-Instruct | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Qwen2.5-VL-32B-Instruct | Qwen2.5-VL-32B-Instruct | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Qwen2-VL-7B-Instruct | Qwen2-VL-7B-Instruct | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Qwen2-VL-72B-Instruct | Qwen2-VL-72B-Instruct | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | qwen-image-edit | Qwen-Image-Edit-2509 | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Qwen-Image | Qwen-Image | SophNet算力供给，性能对标火山阿里，超高并发支持 |
-| 国内 | 阿里 | Z-Image-Turbo | Z-Image-Turbo | SophNet算力供给，性能对标火山阿里，超高并发支持 |
+## 📱 支持的聊天平台
 
-**更多开闭源模型，请Contact: WeChat: hecare888**
+| 平台       | 状态     | 说明                   |
+| -------- | ------ | -------------------- |
+| QQ       | ✅ 已预装  | 输入 AppID + Secret 即可 |
+| 飞书       | ✅ 内置   | 企业首选                 |
+| Telegram | ✅ 内置   | 海外推荐                 |
+| WhatsApp | ✅ 内置   | Baileys 协议           |
+| Discord  | ✅ 内置   | —                    |
+| 微信       | ✅ 社区插件 | iPad 协议              |
 
+***
 
+## 📁 项目结构
 
-**国际模型：** Claude · GPT · Gemini（需翻墙或中转）
+```
+Qu_Claw/
+├── portable/                    # 便携版核心
+│   ├── Windows-Start.bat        # Windows 启动脚本
+│   ├── Windows-Menu.bat         # Windows 功能菜单
+│   ├── Config.html              # 配置页面
+│   ├── Welcome.html             # 欢迎页面
+│   ├── SkillHub.html            # 技能中心
+│   ├── skills-cn/               # 中国本土化技能
+│   │   ├── bilibili-helper/     # B站助手
+│   │   ├── china-search/        # 中国搜索
+│   │   ├── china-translate/     # 中文翻译
+│   │   ├── china-weather/       # 中国天气
+│   │   ├── deepseek-helper/     # DeepSeek 助手
+│   │   ├── douyin-script/       # 抖音脚本
+│   │   ├── wechat-article/      # 微信文章
+│   │   ├── weibo-poster/        # 微博发文
+│   │   ├── xiaohongshu-writer/   # 小红书写作
+│   │   └── zhihu-writer/        # 知乎写作
+│   └── config-server/           # 配置服务器
+├── qu_claw-app/                 # 桌面 App（Electron）
+│   ├── src/                     # 源代码
+│   ├── assets/                  # 图标资源
+│   └── resources/               # 运行资源
+├── README.md                    # 说明文档
+└── LICENSE                      # MIT 许可证
+```
 
-### 支持的聊天平台
+***
 
-| 平台 | 状态 | 说明 |
-|------|------|------|
-| QQ | ✅ 已预装 | 输入 AppID + Secret 即可 |
-| 飞书 | ✅ 内置 | 企业首选 |
-| Telegram | ✅ 内置 | 海外推荐 |
-| WhatsApp | ✅ 内置 | Baileys 协议 |
-| Discord | ✅ 内置 | — |
-| 微信 | ✅ 社区插件 | iPad 协议 |
-
-### 国内镜像
+## 🌐 国内镜像
 
 所有脚本默认走国内镜像，无需翻墙：
 
-| 资源 | 镜像 |
-|------|------|
-| npm 包 | `registry.npmmirror.com` |
-| Node.js | `npmmirror.com/mirrors/node` |
+| 资源       | 镜像                               |
+| -------- | -------------------------------- |
+| npm 包    | `registry.npmmirror.com`         |
+| Node.js  | `npmmirror.com/mirrors/node`     |
 | Electron | `npmmirror.com/mirrors/electron` |
 
-### 开发 & 贡献
+***
+
+## 🛠️ 开发与构建
+
+### 桌面 App 开发
 
 ```bash
-git clone https://github.com/dongsheng123132/u-claw.git
-cd u-claw/portable && bash setup.sh
-bash Mac-Start.command   # Mac 测试
+cd qu_claw-app
+bash setup.sh            # 一键安装开发环境（国内镜像）
+npm run dev              # 开发模式运行
+npm run build:mac-arm64  # 打包 Mac ARM64
+npm run build:win        # 打包 Windows
 ```
 
-**平台支持：**
+### 平台支持
 
-| 平台 | 状态 | 说明 |
-|------|------|------|
-| Mac Apple Silicon (M1-M4) | ✅ | 便携版 + 桌面版 |
-| Mac Intel (x64) | ✅ | 便携版 + 桌面版 |
-| Windows x64 | 🚧 开发中 | 便携版 + 桌面版 |
-| Linux x64（可启动 U 盘） | ✅ | [`bootable/`](bootable/) 目录 |
+| 平台                        | 状态 | 说明           |
+| ------------------------- | -- | ------------ |
+| Mac Apple Silicon (M1-M4) | ✅  | 便携版 + 桌面版    |
+| Mac Intel (x64)           | ✅  | 便携版 + 桌面版    |
+| Windows x64               | ✅  | 便携版 + 桌面版    |
+| Linux x64（可启动 U 盘）        | ✅  | bootable/ 目录 |
 
-欢迎 PR！特别需要：Windows 脚本完善、教程翻译。
+***
 
-### 🦞 寻找技术伙伴
+## 📦 内置技能
 
-U-Claw 是一个快速成长的开源项目，目前已有不少商业合作机会。
+Qu\_Claw 预装了 10+ 个中国本土化技能：
 
-我们正在寻找：
-- **技术伙伴** — 全栈 / Node.js / Electron / 脚本自动化
-- **资源合作** — 渠道、内容、社区运营
+| 技能                    | 功能                   |
+| --------------------- | -------------------- |
+| 📺 bilibili-helper    | B站内容助手 - 标题描述优化、标签策略 |
+| 🔍 china-search       | 中国搜索 - 针对中文内容优化      |
+| 🌐 china-translate    | 中文翻译 - 高质量中英互译       |
+| 🌤️ china-weather     | 中国天气 - 国内城市天气预报      |
+| 🤖 deepseek-helper    | DeepSeek 助手 - 编程首选   |
+| 🎬 douyin-script      | 抖音脚本 - 短视频内容创作       |
+| 📝 wechat-article     | 微信文章 - 公众号内容撰写       |
+| 📢 weibo-poster       | 微博发文 - 微博内容创作        |
+| 📖 xiaohongshu-writer | 小红书写作 - 种草笔记生成       |
+| 💡 zhihu-writer       | 知乎写作 - 问答内容创作        |
 
-如果你对 AI 工具的落地和商业化感兴趣，欢迎联系：
+***
 
-- 微信: hecare888
-- GitHub: [@dongsheng123132](https://github.com/dongsheng123132)
-- 官网: [u-claw.org](https://u-claw.org)
-
-### FAQ
+## ❓ 常见问题
 
 **Q: 需要翻墙吗？**
 不需要。安装和运行全程使用国内镜像，国产模型 API 直连。
@@ -236,225 +240,33 @@ MIT 协议，随便复制分发。
 **Q: Mac 提示"未验证的开发者"？**
 右键脚本 → 打开。
 
-### 联系
+***
+
+## 🤝 贡献与支持
+
+欢迎 PR！特别需要：Windows 脚本完善、教程翻译。
+
+### 寻找技术伙伴
+
+Qu\_Claw 是一个快速成长的开源项目，目前已有不少商业合作机会。
+
+我们正在寻找：
+
+- **技术伙伴** — 全栈 / Node.js / Electron / 脚本自动化
+- **资源合作** — 渠道、内容、社区运营
+
+如果你对 AI 工具的落地和商业化感兴趣，欢迎联系：
 
 - 微信: hecare888
 - GitHub: [@dongsheng123132](https://github.com/dongsheng123132)
-- 官网: [u-claw.org](https://u-claw.org)
+- 官网: [qu\_claw.org](https://qu_claw.org)
 
----
+***
 
-<a id="english"></a>
+## 📄 许可证
 
-## English
+本项目采用 [MIT License](LICENSE) 开源协议。
 
-### What is this
+***
 
-U-Claw (aka "虾盘" / "Xia Pan" in Chinese, meaning "Claw Drive") is a **tutorial + complete source code** for building an [OpenClaw](https://github.com/openclaw/openclaw) (open-source AI assistant framework) USB drive — plug it into any computer, double-click, and start using AI.
-
-The codebase itself is the USB file skeleton. Run `setup.sh` to download large dependencies, then copy the entire `portable/` directory to a USB drive.
-
-> 📖 **[Full Tutorial](https://u-claw.org/tutorial.html)** — Step-by-step manual installation, model setup, chat platform integration.
-
-### One-Line Install (Recommended)
-
-No USB needed — install directly to your computer:
-
-```bash
-# Mac / Linux
-curl -fsSL https://u-claw.org/install.sh | bash
-
-# Windows (PowerShell as Admin)
-irm https://u-claw.org/install.ps1 | iex
-```
-
-Automatically downloads Node.js, installs OpenClaw, configures 10 Chinese-optimized skills, and sets up your AI model. All downloads use China mirrors.
-
-See [`install/README.md`](install/README.md) for details.
-
-### Quick Start: Build a Portable USB
-
-```bash
-# 1. Clone
-git clone https://github.com/dongsheng123132/u-claw.git
-
-# 2. Download dependencies (Node.js + OpenClaw, ~1 min)
-cd u-claw/portable && bash setup.sh
-
-# 3. Copy to USB drive
-cp -R portable/ /Volumes/YOUR_USB/U-Claw/   # Mac
-# Or drag & drop on Windows
-```
-
-**Done!** Plug in the USB, double-click the start script, and you're running AI.
-
-### USB Features
-
-| Feature | Mac | Windows |
-|---------|-----|---------|
-| **Run (no install)** | `Mac-Start.command` | `Windows-Start.bat` |
-| **Menu** | `Mac-Menu.command` | `Windows-Menu.bat` |
-| **Install to PC** | `Mac-Install.command` | `Windows-Install.bat` |
-| **First-time config** | `Config.html` | `Config.html` |
-
-### File Structure
-
-```
-U-Claw/                          ← Copy entire folder to USB
-├── Mac-Start.command             Mac launcher
-├── Mac-Menu.command              Mac menu
-├── Mac-Install.command           Install to Mac
-├── Windows-Start.bat             Windows launcher
-├── Windows-Menu.bat              Windows menu
-├── Windows-Install.bat           Install to Windows
-├── Config.html                   First-time config page
-├── setup.sh                      Download dependencies (dev use)
-├── app/                          ← Large deps (downloaded by setup.sh, not in git)
-│   ├── core/                        OpenClaw + QQ plugin
-│   └── runtime/
-│       ├── node-mac-arm64/          Mac Apple Silicon
-│       ├── node-mac-x64/           Mac Intel
-│       └── node-win-x64/           Windows 64-bit
-└── data/                         ← User data (not in git)
-    ├── .openclaw/                   Config file
-    ├── memory/                      AI memory
-    └── backups/                     Backups
-```
-
-### Linux Bootable USB
-
-No operating system? No problem. Boot any computer from USB into Ubuntu + AI:
-
-- In this repo: [`bootable/`](bootable/) directory (fully independent from other modules)
-- Standalone repo: [u-claw-linux](https://github.com/dongsheng123132/u-claw-linux) (same content, easier to clone separately)
-
-Based on Ventoy + Ubuntu 24.04 LTS + persistence. 4-step PowerShell scripts on Windows. See [`bootable/README.md`](bootable/README.md) for details.
-
-### Desktop App (Electron)
-
-```bash
-cd u-claw-app
-bash setup.sh            # One-click dev setup (China mirrors)
-npm run dev              # Dev mode
-npm run build:mac-arm64  # Build → release/*.dmg
-npm run build:win        # Build → release/*.exe
-```
-
-### Supported AI Models
-
-**Chinese models (no VPN needed):**
-
-| Model | Best for |
-|-------|----------|
-| DeepSeek | Coding, extremely cheap |
-| Kimi K2.5 | Long documents, 256K context |
-| Qwen | Large free tier |
-| GLM (Zhipu) | Academic use |
-| MiniMax | Voice & multimodal |
-| Doubao | Volcengine ecosystem |
-
-**International models:** Claude · GPT · Gemini (VPN or relay required in China)
-
-### Supported Chat Platforms
-
-| Platform | Status | Notes |
-|----------|--------|-------|
-| QQ | ✅ Pre-installed | Enter AppID + Secret |
-| Feishu (Lark) | ✅ Built-in | Enterprise favorite |
-| Telegram | ✅ Built-in | International |
-| WhatsApp | ✅ Built-in | Baileys protocol |
-| Discord | ✅ Built-in | — |
-| WeChat | ✅ Community plugin | iPad protocol |
-
-### China Mirrors
-
-All scripts use China mirrors by default — no VPN needed:
-
-| Resource | Mirror |
-|----------|--------|
-| npm packages | `registry.npmmirror.com` |
-| Node.js | `npmmirror.com/mirrors/node` |
-| Electron | `npmmirror.com/mirrors/electron` |
-
-### Development & Contributing
-
-```bash
-git clone https://github.com/dongsheng123132/u-claw.git
-cd u-claw/portable && bash setup.sh
-bash Mac-Start.command   # Test on Mac
-```
-
-**Platform Support:**
-
-| Platform | Status | Notes |
-|----------|--------|-------|
-| Mac Apple Silicon (M1-M4) | ✅ | Portable + Desktop |
-| Mac Intel (x64) | ✅ | Portable + Desktop |
-| Windows x64 | 🚧 In progress | Portable + Desktop |
-| Linux x64 (Bootable USB) | ✅ | [`bootable/`](bootable/) directory |
-
-PRs welcome! Especially: Windows scripts, documentation.
-
-### 🔧 Professional Services / 专业服务
-
-Need help? We offer remote support and custom development:
-
-| Service | Description | Price |
-|---------|-------------|-------|
-| **Remote Installation** | We remotely install OpenClaw + skills + model config for you | Free |
-| **Troubleshooting** | Startup failures, port conflicts, network issues | From ¥50 |
-| **Model Tuning** | API key setup, model switching, prompt optimization | From ¥50 |
-| **Custom Development** | Custom skills, enterprise private deployment, QQ/WeChat/Feishu bot integration | From ¥200 |
-| **USB Green Edition** | Pre-built portable USB with your custom skills & models | From ¥100 |
-
-**One-click remote support** — run one command, we connect and fix it:
-
-```bash
-# Mac / Linux
-curl -fsSL https://u-claw.org/remote.sh | bash
-
-# Windows (Admin PowerShell)
-irm https://u-claw.org/remote.ps1 | iex
-```
-
-WeChat: **hecare888** (备注「U-Claw 远程」优先处理)
-
-👉 [View full service details / 查看完整服务详情](https://u-claw.org/guide.html#remote-support)
-
-### 🦞 Looking for Partners
-
-U-Claw is a fast-growing open-source project with real commercial opportunities.
-
-We're looking for:
-- **Technical partners** — Full-stack / Node.js / Electron / scripting
-- **Resource partners** — Distribution, content, community
-
-If you're interested in AI tooling and commercialization, let's talk:
-
-- WeChat: hecare888
-- GitHub: [@dongsheng123132](https://github.com/dongsheng123132)
-- Website: [u-claw.org](https://u-claw.org)
-
-### FAQ
-
-**Q: Do I need a VPN?**
-No. All downloads use China mirrors. Chinese AI model APIs work directly.
-
-**Q: How big should the USB drive be?**
-4GB+ (~2.3GB full).
-
-**Q: Can I redistribute?**
-MIT license — copy and share freely.
-
-**Q: Mac says "unverified developer"?**
-Right-click the script → Open.
-
-### Contact
-
-- WeChat: hecare888
-- GitHub: [@dongsheng123132](https://github.com/dongsheng123132)
-- Website: [u-claw.org](https://u-claw.org)
-
----
-
-**Made with 🦞 by [dongsheng](https://github.com/dongsheng123132)**
+**Made with 🦞 by** **[dongsheng](https://github.com/dongsheng123132)**

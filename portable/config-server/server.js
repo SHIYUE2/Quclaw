@@ -76,7 +76,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-  console.log(`\n🦞 U-Claw Config Center`);
+  console.log(`\n🦞 Qu_Claw Config Center`);
   console.log(`   http://127.0.0.1:${PORT}`);
   console.log(`\n   Config file: ${CONFIG_PATH}\n`);
 });
