@@ -1,6 +1,6 @@
 # 🦞 Qu\_Claw（虾盘）
 
-
+一键包下载https://1827962863.share.123865.com/123pan/jr6ujv-yy1wv   ，这个网盘浏览器下载免费不限速
 > **插上 U 盘，双击启动，AI 随身携带**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
